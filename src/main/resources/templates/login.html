@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="container mt-2">
+
+			<div class="row justify-content-center">
+
+				<div class="col-md-4">
+
+					<div class="card">
+
+						<div class="card-header text-center">
+							<h2 class=" text-primary">Login Here ! !</h2>
+						</div>
+
+						<div class="card-body">
+						
+						<!-- login error message -->
+						<th:block th:if="${param.error}">
+
+								<div class="alert text-center alert-danger" role="alert">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</div>
+
+							</th:block>
+							
+							<!-- logout message -->
+							<th:block th:if="${param.logout}">
+
+								<div class="alert text-center alert-success" role="alert">You have logout successfully ..</div>
+
+							</th:block>
+							
+								<!-- password change message -->
+							<th:block th:if="${param.change}">
+
+								<div class="alert text-center alert-success" role="alert">
+								
+									<p th:text="${param.change}" ></p>
+								
+								</div>
+
+							</th:block>
+							
+
+							<form action="/formLogin" method="POST">
+
+
+								<div class="mb-3">
+									<label for="exampleInputEmail" class="form-label">Email
+										address</label> <input name="username" type="email" class="form-control"
+										id="exampleInputEmail">
+								</div>
+
+								<div class="mb-3">
+									<label for="exampleInputPassword" class="form-label">Enter
+										Password</label> <input type="password" class="form-control"
+										name="password" id="exampleInputPassword">
+								</div>
+
+								<div class="mb-3 text-center">
+								
+									<button type="submit" class="btn btn-primary">Login</button>
+								
+								</div>	
+								
+								<div class="mb-3 text-center mt-2">
+								
+									<p><a th:href="@{/forgot}" style="text-decoration:none;">forgot password</a></p>
+								
+								</div>
+								
+							</form>
+
+						</div>
+						
+						<div class="card-footer text-center">
+						don't have an account 
+							<a th:href="@{/signup}">Register Here</a>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+	</section>
+
+
+</body>
+</html>

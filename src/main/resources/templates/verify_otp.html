@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+
+		<br> <br> <br>
+
+
+		<div class="container mt-5">
+
+			<div class="row justify-content-center">
+
+
+				<div class="col-md-4">
+
+					<div class="container text-center">
+
+						<div class="card">
+
+							<div class="card-body">
+
+								<h3 class=" text-primary mt-4">OTP Verification</h3>
+
+								<!-- message -->
+
+								<div class="alert alert-success" role="alert">we have send
+									OTP to your mail ..</div>
+
+								<!-- message shown in webpage -->
+								<th:block th:if="${session.msg}">
+
+									<div class="alert text-center" role="alert"
+										th:classappend="${session.type}">[[${session.msg}]]</div>
+
+									<th:block
+										th:text="${@contactMgmtServiceImpl.removeSessionMessage()}"></th:block>
+
+								</th:block>
+
+								<form action="/verify-user_otp" method="POST" class="mt-5">
+
+
+									<div class="mb-3">
+										<label for="exampleInputEmail" class="form-label">Enter
+											OTP here</label> <input name="otp" type="text"
+											placeholder="Enter otp ..." class="form-control"
+											id="exampleInputEmail" required>
+									</div>
+
+									<br> <br>
+
+									<div class="mb-3 text-center">
+										<button type="submit" class="btn btn-primary">Verify
+											otp</button>
+									</div>
+
+								</form>
+
+
+
+							</div>
+
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</section>
+
+
+</body>
+</html>
