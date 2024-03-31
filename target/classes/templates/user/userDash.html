@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="container text-center">
+
+			<div class="card">
+
+				<div class="card-body">
+
+					<img src="" style="height: 200px; width: 200px;"
+						class="my_profile_picture" th:src="@{ /img/contact.jpg}"
+						alt="profile photo" />
+
+
+					<h1 class="text-center mt-3 text-secondary fst-italic fw-light">
+						Start Adding your contact on cloud . . .</h1>
+
+					<div class="container mt-4">
+
+						<a  th:href="@{/user/add-contact}" class="btn btn-block btn-warning">Add Contacts</a>
+						<a  href="/user/show-contacts" class="btn btn-dark">View Contacts</a>
+						<a  href="/user/your_profile" class="btn btn-primary">Setting</a>
+
+					</div>
+					
+					<div class="container mt-4">
+					
+					<p class="text-success"> Cloud is a suite of cloud computing services that uses the same infrastructure as Google's consumer products. Cloud computing allows people and businesses to access computing resources, like storage and infrastructure, over the internet instead of managing physical resources themselves.</p>
+					
+					</div>
+					
+					<div class="container mt-4">
+					
+					<p class="text-dark">Google Cloud Platform (GCP) is a public cloud vendor that offers a suite of computing services, including: Computing and hosting, Storage and database, Networking, Big Data, and Machine learning.</p>
+					
+					</div>
+					
+					<div class="container mt-4">
+					
+					<p class="text-info">The cloud can provide more flexibility and reliability, increased performance and efficiency, and help to lower IT costs. It can also improve innovation, allowing organizations to achieve faster time to market and incorporate AI and machine learning use cases into their strategies.</p>
+					
+					</div>
+					
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+		
+		<script>
+		
+		$(document).ready(() => {
+			
+			$(".item").removeClass("active");
+			
+			$("#home-link").addClass("active");
+			
+			} );
+		
+		</script>
+
+
+	</section>
+
+</body>
+</html>

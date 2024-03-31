@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="container text-center">
+
+			<div class="card">
+
+				<div class="card-body">
+
+					<img src="" style="height: 200px; width: 200px;"
+						class="my_profile_picture" th:src="@{ /img/setting.png}"
+						alt="profile photo" />
+
+
+					<h1 class="text-center mt-1 text-secondary fst-italic fw-light">
+						Settings . . .(Change Password)</h1>
+
+					<div class="container mt-3">
+
+						<div class="row justify-content-center">
+
+							<div class="col-md-8">
+
+
+								<form th:action="@{/user/change-password}" method="POST" >
+
+									<div class="mb-3">
+
+										<label for="exampleInputoldpassword" class="form-label">Enter
+											old password :</label> <input name="oldPassword" type="password" class="form-control"
+											placeholder="Enter old password .."
+											id="exampleInputoldpassword">
+
+									</div>
+
+
+									<div class="mb-3">
+
+										<label for="exampleInputnewpassword" class="form-label">Enter
+											new password :</label> <input name="newPassword"  type="password" class="form-control"
+											placeholder="Enter new password .."
+											id="exampleInputnewpassword">
+
+									</div>
+									
+									<div class="mb-3">
+									
+									<button type="submit" class="btn btn-success">Submit</button>
+									<button type="reset" class="btn btn-warning">reset</button>
+									
+									</div>
+
+
+								</form>
+
+
+							</div>
+
+						</div>
+
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+
+		<script>
+		
+		$(document).ready(() => {
+			
+			$(".item").removeClass("active");
+			
+			$("#setting-link").addClass("active");
+			
+			} );
+		
+		</script>
+
+
+	</section>
+
+</body>
+</html>

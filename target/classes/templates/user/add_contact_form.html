@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+
+
+		<div class="card mr-3 ml-3">
+
+			<div class="card-body">
+
+				<h3 class="text-center text-primary">Add Contact</h3>
+
+				<div class="container m-1">
+
+					<div class="row">
+
+						<div class="col-md-8 offset-md-2">
+
+							<form action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/user/process-contact}" class="m-2">
+
+								<div class="input-group flex-nowrap">
+									<span class="input-group-text" id="name-user"><i
+										class="fa fa-plus"></i></span> <input type="text" name="name"
+										class="form-control" placeholder="Enter your name here"
+										aria-describedby="name-user" required>
+								</div>
+
+								<div class="input-group flex-nowrap mt-2">
+									<span class="input-group-text" id="nickname"><i
+										class="fa fa-user"></i></span> <input type="text" name="secondName"
+										class="form-control" placeholder="Enter your nick name "
+										aria-describedby="nickname" required>
+								</div>
+
+								<div class="input-group flex-nowrap mt-2">
+									<span class="input-group-text" id="userwork"><i
+										class="fa fa-briefcase"></i></span> <input type="text" name="work"
+										class="form-control" placeholder="Enter your work"
+										aria-describedby="userwork" required>
+								</div>
+
+								<div class="input-group flex-nowrap mt-2">
+									<span class="input-group-text" id="useremail">@</span> <input
+										type="email" name="email" class="form-control"
+										placeholder="Enter your email address"
+										aria-describedby="useremail" required>
+								</div>
+
+								<div class="input-group flex-nowrap mt-2">
+									<span class="input-group-text" id="userphone"><i
+										class="fa fa-phone"></i></span> <input type="number" name="phone"
+										class="form-control" placeholder="Enter your phone number"
+										aria-describedby="userphone" required >
+								</div>
+
+								<div class="input-group mb-3">
+									<textarea class="form-control mt-2" name="description"
+										placeholder="Leave a description here" rows="7" required></textarea>
+								</div>
+
+
+								<div class="input-group mb-3">
+									<label class="input-group-text" for="upload">Upload</label>
+									<input type="file" class="form-control"  name="imageName" required>
+								</div>
+								
+								<div class="container text-center">
+									<button class="btn btn-outline-info">Save Contact</button>
+								</div>
+								
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+		
+		<script>
+		
+		$(document).ready(() => {
+			
+			$(".item").removeClass("active");
+			
+			$("#add-link").addClass("active");
+			
+			} );
+		
+		</script>
+    
+	</section>
+
+</body>
+</html>

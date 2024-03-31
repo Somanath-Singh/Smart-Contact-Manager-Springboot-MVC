@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="container">
+
+			<div class="row justify-content-center">
+
+				<div class="col-md-6">
+
+					<div class="my-card mt-2">
+
+						<!-- Message shown in web page -->
+
+						<div th:if="${successmessage ne null}" class="alert alert-success"
+							role="alert">
+
+							<p class="text-center" th:text="${successmessage}"></p>
+
+						</div>
+
+						<div th:if="${errormessage ne null}" class="alert alert-danger"
+							role="alert">
+
+							<p class="text-center" th:text="${errormessage}"></p>
+
+						</div>
+
+						<div class="container text-center">
+							<img style="width: 80px;" src="" th:src="@{/img/blogging.png}"
+								alt="" />
+						</div>
+
+						<h1 class="text-center text-primary">Signup here !!</h1>
+
+						<form novalidate action="" th:action="@{/register}" method="POST"
+							th:object="${user}">
+
+							<!-- user name -->
+							<div class="mb-3">
+								<label for="exampleInputname" class="form-label">Name</label> <input
+									name="name" type="text" th:field="*{name}" class="form-control"
+									th:classappend="${#fields.hasErrors('name')} ? is-invalid : ' ' "
+									id="exampleInputname" placeholder="Enter your name !"
+									aria-describedby="validationServerName" required>
+
+								<div id="validationServerName" class="invalid-feedback"
+									th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+									Name Error</div>
+
+							</div>
+
+							<!--  th:value="${user.name}" =   th:field="*{name}"  both are equal-->
+
+							<!-- user email -->
+							<div class="mb-3">
+								<label for="exampleInputEmail" class="form-label">Email
+									address</label> <input name="email" type="email" th:field="*{email}"
+									class="form-control"
+									th:classappend="${#fields.hasErrors('email')} ? is-invalid : ' ' "
+									id="exampleInputEmail" placeholder="Enter your email address !"
+									aria-describedby="validationServerEmail" required>
+								<div id="validationServerEmail" class="form-text">We'll never share
+									your email with anyone else.</div>
+
+								<div id="validationServerEmail" class="invalid-feedback"
+									th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+									Email Error</div>
+
+							</div>
+
+							<!-- user password-->
+							<div class="mb-3">
+								<label for="exampleInputPassword" class="form-label">Password</label>
+								<input name="password" type="password"
+									th:value="${user.password}" class="form-control"
+									th:classappend="${#fields.hasErrors('password')} ? is-invalid : ' ' "
+									placeholder="Enter your password  !" id="exampleInputPassword"
+									aria-describedby="validationServerPassword" required>
+
+								<div id="validationServerPassword" class="invalid-feedback"
+									th:if="${#fields.hasErrors('password')}"
+									th:errors="*{password}">Password Error</div>
+
+							</div>
+
+							<!-- user about-->
+
+							<div class="form-group">
+
+								<textarea name="about" th:value="${user.about}"
+									class="form-control"
+									th:classappend="${#fields.hasErrors('about')} ? is-invalid : ' ' "
+									placeholder="Enter something about yourself !" rows="7"
+									aria-describedby="validationServerAbout" required></textarea>
+								<!--  th:text="${user.about}" -->
+
+								<div id="validationServerAbout" class="invalid-feedback"
+									th:if="${#fields.hasErrors('about')}" th:errors="*{about}">
+									About Error</div>
+
+							</div>
+
+							<div class="mb-3 form-check">
+								<input name="agrement" type="checkbox" class="form-check-input"
+									id="exampleCheck1"> <label class="form-check-label"
+									for="exampleCheck1">Check me out</label>
+							</div>
+
+							<div class="container text-center">
+
+								<button type="submit" class="btn bg-primary text-white">Submit</button>
+
+								<button type="reset" class="btn btn-warning text-white">Reset</button>
+
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+</body>
+</html>
